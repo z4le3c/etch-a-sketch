@@ -4,11 +4,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 32px;
 }
 
 #grid {
-    width: 50vw;
-    height: 50vw;
+    width: 40vw;
+    height: 40vw;
     display: flex;
     flex-wrap: wrap;
 }
