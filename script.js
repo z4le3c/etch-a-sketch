@@ -10,7 +10,10 @@ function createGrid(size) {
             div.style.width = `${100/size}%`
             div.style.height = `${100/size}%`
             div.addEventListener('mouseover', () => {
-                div.style.background = 'red';
+                let red = Math.floor(Math.random() * 256)
+                let green = Math.floor(Math.random() * 256)
+                let blue = Math.floor(Math.random() * 256)
+                div.style.background = `rgb(${red}, ${green}, ${blue})`;
             });
             grid.append(div);
         }
