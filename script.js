@@ -1,10 +1,29 @@
-const grid = document.querySelector('#grid');
-for (let row = 0; row < 16; row++) {
-    for (let cell = 0; cell < 16; cell++) {
-        const div = document.createElement('div');
-        div.addEventListener('mouseover', () => {
-            div.style.background = 'red';
-        });
-        grid.appendChild(div);
-    }
+function createGrid(size) {
+    let grid = document.querySelector('#grid');
+    const newGrid = document.createElement('div');
+    newGrid.setAttribute('id', 'grid');
+    grid.replaceWith(newGrid);
+    grid = document.querySelector('#grid');
+    for (let row = 0; row < size; row++) {
+        for (let cell = 0; cell < size; cell++) {
+            const div = document.createElement('div');
+            div.style.width = `${100/size}%`
+            div.style.height = `${100/size}%`
+            div.addEventListener('mouseover', () => {
+                div.style.background = 'red';
+            });
+            grid.append(div);
+        }
+    }    
 }
+
+const button = document.querySelector('#change-size-b')
+button.addEventListener('click', () => {
+    let size = +prompt('Size(min: 1, max: 100):', 16);
+
+    if (!size || ! (0 < size && size < 101)) size = 16;
+
+    createGrid(size)
+});
+
+createGrid(16);
